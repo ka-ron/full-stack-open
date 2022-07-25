@@ -22,6 +22,7 @@ const VoteButton = ({handleVote, name}) =>{
     <>
     <button onClick={handleVote}>{name}</button>
     
+    
     </>
   )
 }
@@ -65,7 +66,10 @@ const App = () => {
       <h1>Anecdote with the current highest vote:</h1>
       {anecdotes[highestVote]}<br/>
       Has {votes[highestVote]} votes <br/>
+      
+      
     </div>
+    
   )
 }
 
