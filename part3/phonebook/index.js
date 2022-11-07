@@ -5,15 +5,11 @@ const morgan = require("morgan");
 
 require("dotenv").config();
 
-
 app.use(express.static("build"));
 app.use(express.json());
 app.use(cors());
 
-
 const Persons = require("./models/person");
-
-
 
 morgan.token("data", function data(request) {
   return JSON.stringify(request.body);
@@ -24,18 +20,6 @@ app.use(
 );
 
 const currentday = new Date();
-
-// const generateId = () => {
-//   const maxId = persons.length > 0
-//     ? Math.max(...persons.map(n => n.id))
-//     : 0
-//   return maxId + 1
-// }
-
-// app.get('/', (request, response) => {
-//   response.send('<h1>Hello World!</h1>')
-
-// })
 
 app.get("/api/persons", (request, response) => {
   Persons.find({}).then((personsFound) => {
@@ -53,10 +37,6 @@ app.get("/info", (request, response) => {
 });
 
 app.get("/api/persons/:id", (request, response, next) => {
-  // const id = Number(request.params.id)
-  // console.log(id)
-  // const personFound = persons.find(person => person.id === id)
-  // console.log(personFound)
   Persons.findById(request.params.id)
     .then((person) => {
       if (person) {
@@ -66,23 +46,10 @@ app.get("/api/persons/:id", (request, response, next) => {
       }
     })
     .catch((error) => next(error));
-
-  // if (personFound) {
-  // response.json(personFound)
-  // }
-  // else {
-  //   response.status(404).end()
-  // }
 });
 
 app.post("/api/persons", (request, response, next) => {
   const body = request.body;
-
-  // const nameEntry = body.name
-
-  // const duplicateName = persons.find((p) => p.name === nameEntry)
-  // // console.log(body.name)
-  // // console.log(body.number)
 
   if (!body) {
     return response.status(400).json({
@@ -90,39 +57,21 @@ app.post("/api/persons", (request, response, next) => {
     });
   }
 
-  // }
-  // if (duplicateName) {
-  //   return response.status(400).json({
-  //     error: 'already in phonebook'
-  //   })
-  // }
-
   const person = new Persons({
     name: body.name,
     number: body.number,
-
-    // id: generateId(),
   });
 
-  // persons = persons.concat(person)
   person
     .save()
     .then((savedPerson) => {
       response.json(savedPerson);
     })
     .catch((error) => next(error));
-
-  // console.log(person)
-  // response.json(person)
 });
 
 app.put("/api/persons/:id", (request, response, next) => {
   const { name, number } = request.body;
-
-  //  const person = {
-  //   name: body.name,
-  //   number: body.number
-  //  }
 
   Persons.findByIdAndUpdate(
     request.params.id,

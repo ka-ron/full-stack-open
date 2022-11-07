@@ -7,7 +7,7 @@ Content-Type: application/json
     "author": "testttttt",
     "url": "url.com/url",
     "likes": "2",
-    "userId": "62f92fbdf9366c9587eafe8e"
+    "userId": "634ea5abe277bd55de5d2bfa"
 
 }
 
@@ -36,14 +36,14 @@ Content-Type: application/json
 
 POST http://localhost:3003/api/blogs HTTP/1.1 
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthYXMzIiwiaWQiOiI2MmY5NDI2YzA1YmM4MjYyODc0ZjM2NmIiLCJpYXQiOjE2NjA4NTYyODksImV4cCI6MTY2MDg1OTg4OX0.iJMd5_uiQiI4laXpU7CsMWJkUnf9L8tzUUe7FMVgOUk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthYXMzIiwiaWQiOiI2MzRlYTVhYmUyNzdiZDU1ZGU1ZDJiZmEiLCJpYXQiOjE2NjYxMDAyMDgsImV4cCI6MTY2NjEwMzgwOH0.KmGJMmUjHrwuhl39y0hCrYgsUHK2mFN_6uhMFzbmcv0
 
 {
     "title": "even niet praten 2",
     "author": "sic",
     "url": "url.com/url",
     "likes": "2",
-    "userId": "62f92fbdf9366c9587eafe8e"
+    "userId": "634ea5abe277bd55de5d2bfa"
 
 }
 

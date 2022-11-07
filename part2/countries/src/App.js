@@ -9,6 +9,7 @@ function App() {
   const [showResults, setShowResults] = useState(true);
   const [text, setText] = useState("Enter input");
   const [showCountry, setShowCountry] = useState(false);
+  const [arrayID, setArrayID] = useState(false);
 
   const handleFilterChange = (event) => {
     console.log(event.target.value);
@@ -39,7 +40,7 @@ function App() {
       <li key={i}>
         {" "}
         {filteredName.name.common}{" "}
-        <button onClick={handleButtonClick}> Show/Hide preview</button>
+        <button onClick={ () => setArrayID(i) && handleButtonClick }> Show/Hide preview</button>
         <h5>
           {" "}
           {showCountry ? (
@@ -93,7 +94,7 @@ function App() {
       <h5>
         {" "}
         {showCountry ? (
-          <CountryInfo toShow={showCountry} info={countryToShow[0]} />
+          <CountryInfo toShow={showCountry} info={countryToShow[arrayID]} />
         ) : null}
       </h5>
       <h5>___________________</h5>
